@@ -1,36 +1,51 @@
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
-function randomFromArray(array) {
-  return array[getRandomInt(0, array.length)];
-}
-
 function randomProperty(obj) {
   var keys = Object.keys(obj);
   return obj[keys[(keys.length * Math.random()) << 0]];
 }
 
-function generateNewBenefitProposal() {
-  const actions = [
+function shuffle(array) {
+  return array.sort(function () {
+    return Math.random() - 0.5;
+  });
+}
+
+class RandomCache {
+  constructor(array) {
+    this.array = shuffle(array);
+    this.used = [];
+  }
+
+  get() {
+    if (this.array.length === 0) {
+      this.array = shuffle(this.used);
+      this.used = [];
+    }
+
+    const item = this.array.shift();
+    this.used.push(item);
+
+    return item;
+  }
+}
+
+class BenefitProposal {
+  actions = new RandomCache([
     'Novo benefício estadual',
     'Novo incentivo Federal',
     'Novo programa da prefeitura',
     'Será criada uma nova taxa',
     'Será instituído um novo imposto',
-  ];
+  ]);
 
-  const benefits = [
+  benefits = new RandomCache([
     'para dar auxílio-paletó',
     'para dar barras de chocolate',
     'para dar vale-cultura',
     'para dar vale-refeição',
     'para plantar uma árvore',
-  ];
+  ]);
 
-  const receivers = [
+  receivers = new RandomCache([
     'para adultos desempregados',
     'para apicultores',
     'para bodybuilders',
@@ -42,17 +57,19 @@ function generateNewBenefitProposal() {
     'para produtores de leite',
     'para veganos',
     'para vítimas de COVID-19',
-  ];
+  ]);
 
-  const action = randomFromArray(actions);
-  const benefit = randomFromArray(benefits);
-  const receiver = randomFromArray(receivers);
+  generate() {
+    const action = this.actions.get();
+    const benefit = this.benefits.get();
+    const receiver = this.receivers.get();
 
-  return action + ' ' + benefit + ' ' + receiver + '.';
+    return action + ' ' + benefit + ' ' + receiver + '.';
+  }
 }
 
-function generateNewProhibitionProposal() {
-  const actions = [
+class ProhibitionProposal {
+  actions = new RandomCache([
     'Abolir',
     'Banir',
     'Censurar',
@@ -64,9 +81,9 @@ function generateNewProhibitionProposal() {
     'Reprimir',
     'Taxar',
     'Vetar',
-  ];
+  ]);
 
-  const targets = [
+  targets = new RandomCache([
     'a escuta de sertanejo universitário',
     'a realização de bailes funk',
     'a venda de Whey Protein',
@@ -77,9 +94,9 @@ function generateNewProhibitionProposal() {
     'o uso de samba canção',
     'versões forró de músicas internacionais',
     'vídeos de Fortnite',
-  ];
+  ]);
 
-  const objectives = [
+  objectives = new RandomCache([
     'em defesa da família',
     'em defesa dos valores cristãos',
     'em vias públicas',
@@ -92,34 +109,35 @@ function generateNewProhibitionProposal() {
     'para melhorar a educação',
     'para melhorar o transporte rodoviário',
     'para movimentar a economia',
-  ];
+  ]);
 
-  const action = randomFromArray(actions);
-  const target = randomFromArray(targets);
-  const objective = randomFromArray(objectives);
-
-  return action + ' ' + target + ' ' + objective + '.';
+  generate() {
+    const action = this.actions.get();
+    const target = this.targets.get();
+    const objective = this.objectives.get();
+    return action + ' ' + target + ' ' + objective + '.';
+  }
 }
 
-function generateNewPermissionProposal() {
-  const actions = [
+class PermissionProposal {
+  actions = new RandomCache([
     'Permitir',
     'Incentivar',
     'Obrigar',
     'Subsidiar',
     'Estimular',
     'Encorajar',
-  ];
+  ]);
 
-  const targets = [
+  targets = new RandomCache([
     'a construção de usinas nucleares',
     'a realização de rinhas de galo',
     'jogo do bicho',
     'o consumo de maconha',
     'o uso de doping nos esportes',
-  ];
+  ]);
 
-  const wheres = [
+  wheres = new RandomCache([
     'em fins de semana',
     'em parques públicos',
     'em praias de nudismo',
@@ -128,24 +146,31 @@ function generateNewPermissionProposal() {
     'em todo território nacional',
     'em vias públicas',
     'no Acre',
-  ];
+  ]);
 
-  const action = randomFromArray(actions);
-  const target = randomFromArray(targets);
-  const where = randomFromArray(wheres);
-
-  return action + ' ' + target + ' ' + where + '.';
+  generate() {
+    const action = this.actions.get();
+    const target = this.targets.get();
+    const where = this.wheres.get();
+    return action + ' ' + target + ' ' + where + '.';
+  }
 }
+
+const benefitProposal = new BenefitProposal();
+const prohibitionProposal = new ProhibitionProposal();
+const permissionProposal = new PermissionProposal();
 
 function generateProposal() {
   const proposalKinds = {
-    BENEFIT: generateNewBenefitProposal,
-    PROHIBITION: generateNewProhibitionProposal,
-    PERMISSION: generateNewPermissionProposal,
+    BENEFIT: benefitProposal,
+    PROHIBITION: prohibitionProposal,
+    PERMISSION: permissionProposal,
   };
 
   const randomProposal = randomProperty(proposalKinds);
-  return randomProposal();
+  console.log(randomProposal);
+
+  return randomProposal.generate();
 }
 
 window.onload = function () {
