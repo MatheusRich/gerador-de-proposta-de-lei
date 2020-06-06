@@ -99,16 +99,18 @@ class ProhibitionProposal {
   targets = new RandomCache([
     'a escuta de k-pop',
     'a escuta de sertanejo universitário',
+    'a leitura de Olavo de Carvalho',
+    'a leitura de Paulo Freire',
     'a realização de bailes funk',
     'a venda de Whey Protein',
     'bom dia em grupo de WhatsApp',
     'o consumo de açaí',
+    'o consumo de bebidas alcoólicas',
     'o consumo de jiló',
     'o consumo de pequi',
     'o consumo de quiabo',
-    'o consumo de água com gás',
     'o consumo de refrigerantes',
-    'o consumo de bebidas alcoólicas',
+    'o consumo de água com gás',
     'o novo acordo ortográfico',
     'o uso de crocs',
     'o uso de samba canção',
@@ -155,7 +157,9 @@ class PermissionProposal {
   targets = new RandomCache([
     'a construção de cassinos',
     'a construção de usinas nucleares',
+    'a extração de nióbio',
     'a realização de rinhas de galo',
+    'a volta das tirinhas de meme',
     'a volta do Orkut',
     'a volta do RBD',
     'jogo do bicho',
@@ -166,6 +170,12 @@ class PermissionProposal {
   ]);
 
   wheres = new RandomCache([
+    'em Itaquaquecetuba',
+    'em Pindamonhangaba',
+    'em anos bissextos',
+    'em dias chuvosos',
+    'em dias frios',
+    'em dias quentes',
     'em fins de semana',
     'em parques públicos',
     'em praias de nudismo',
@@ -174,6 +184,7 @@ class PermissionProposal {
     'em todo território nacional',
     'em vias públicas',
     'no Acre',
+    'uma vez por ano',
   ]);
 
   generate() {
