@@ -7,7 +7,7 @@ body {
 body {
   font-family: 'Merriweather', serif;
   color: black;
-  font-size: 40px;
+  font-size: 35px;
   display: flex;
   flex-flow: column;
   height: 100%;
@@ -60,7 +60,7 @@ a:visited {
   margin: 0;
 }
 .quote {
-  color: #999;
+  color: #aaa;
   align-self: flex-start;
   font-size: 120px;
   position: relative;
