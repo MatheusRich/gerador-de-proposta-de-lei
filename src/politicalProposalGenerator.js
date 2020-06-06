@@ -44,16 +44,31 @@ class RandomCache {
   }
 }
 
-class BenefitProposal {
-  actions = new RandomCache([
+class ProposalGenerator {
+  constructor({ initialSentences, middleSentences, finalSentences }) {
+    this.initialSentences = new RandomCache(initialSentences);
+    this.middleSentences = new RandomCache(middleSentences);
+    this.finalSentences = new RandomCache(finalSentences);
+  }
+
+  generate() {
+    const initialSentence = this.initialSentences.get();
+    const middleSentence = this.middleSentences.get();
+    const finalSentence = this.finalSentences.get();
+
+    return initialSentence + ' ' + middleSentence + ' ' + finalSentence + '.';
+  }
+}
+
+const benefitProposal = new ProposalGenerator({
+  initialSentences: [
     'Novo benefício estadual',
     'Novo incentivo Federal',
     'Novo programa da prefeitura',
     'Será criada uma nova taxa',
     'Será instituído um novo imposto',
-  ]);
-
-  benefits = new RandomCache([
+  ],
+  middleSentences: [
     'para instituir um feriado homenageando',
     'para plantar uma árvore para',
     'que concede auxílio-moradia para',
@@ -62,9 +77,8 @@ class BenefitProposal {
     'que concede vale-cultura para',
     'que concede vale-refeição para',
     'que concede vale-transporte para',
-  ]);
-
-  receivers = new RandomCache([
+  ],
+  finalSentences: [
     'apicultores',
     'aposentados e pensionistas',
     'artistas de praia',
@@ -88,19 +102,11 @@ class BenefitProposal {
     'veganos',
     'viciados em Twitter',
     'vítimas de COVID-19',
-  ]);
+  ],
+});
 
-  generate() {
-    const action = this.actions.get();
-    const benefit = this.benefits.get();
-    const receiver = this.receivers.get();
-
-    return action + ' ' + benefit + ' ' + receiver + '.';
-  }
-}
-
-class ProhibitionProposal {
-  actions = new RandomCache([
+const prohibitionProposal = new ProposalGenerator({
+  initialSentences: [
     'Abolir',
     'Banir',
     'Censurar',
@@ -112,9 +118,8 @@ class ProhibitionProposal {
     'Reprimir',
     'Taxar',
     'Vetar',
-  ]);
-
-  targets = new RandomCache([
+  ],
+  middleSentences: [
     'a adição de açúcar no café',
     'a escuta de k-pop',
     'a escuta de sertanejo universitário',
@@ -140,9 +145,8 @@ class ProhibitionProposal {
     'sopa na janta',
     'versões forró de músicas internacionais',
     'vídeos de Fortnite',
-  ]);
-
-  objectives = new RandomCache([
+  ],
+  finalSentences: [
     'em defesa da democracia',
     'em defesa da família',
     'em defesa dos direitos do trabalhador',
@@ -161,27 +165,19 @@ class ProhibitionProposal {
     'para melhorar a educação',
     'para melhorar o transporte rodoviário',
     'para movimentar a economia',
-  ]);
+  ],
+});
 
-  generate() {
-    const action = this.actions.get();
-    const target = this.targets.get();
-    const objective = this.objectives.get();
-    return action + ' ' + target + ' ' + objective + '.';
-  }
-}
-
-class PermissionProposal {
-  actions = new RandomCache([
+const permissionProposal = new ProposalGenerator({
+  initialSentences: [
     'Permitir',
     'Incentivar',
     'Obrigar',
     'Subsidiar',
     'Estimular',
     'Encorajar',
-  ]);
-
-  targets = new RandomCache([
+  ],
+  middleSentences: [
     'a construção de cassinos',
     'a construção de usinas nucleares',
     'a extração de nióbio',
@@ -195,9 +191,8 @@ class PermissionProposal {
     'o consumo de maconha',
     'o fim das lives de sertanejo',
     'o uso de doping nos esportes',
-  ]);
-
-  wheres = new RandomCache([
+  ],
+  finalSentences: [
     'em Itaquaquecetuba',
     'em Pindamonhangaba',
     'em anos bissextos',
@@ -215,19 +210,8 @@ class PermissionProposal {
     'no Acre',
     'no Beto Carrero World',
     'uma vez por ano',
-  ]);
-
-  generate() {
-    const action = this.actions.get();
-    const target = this.targets.get();
-    const where = this.wheres.get();
-    return action + ' ' + target + ' ' + where + '.';
-  }
-}
-
-const benefitProposal = new BenefitProposal();
-const prohibitionProposal = new ProhibitionProposal();
-const permissionProposal = new PermissionProposal();
+  ],
+});
 
 const proposalKinds = {
   BENEFIT: benefitProposal,
