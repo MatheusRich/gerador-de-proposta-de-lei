@@ -211,10 +211,10 @@ window.onload = function () {
   let shareBtn = document.querySelector('[data-share]');
   if (!navigator.share) shareBtn.style.display = 'none';
 
-  shareBtn.onclick = async () => {
+  shareBtn.onclick = async function () {
     try {
       await navigator.share({
-        title: 'Gerador de Proposta de lei',
+        title: 'Gerador de Proposta de Lei',
         text: `"${proposalElement.innerHTML}"`,
         url: window.location.href,
       });
