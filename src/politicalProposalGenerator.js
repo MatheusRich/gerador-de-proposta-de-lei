@@ -38,25 +38,28 @@ class BenefitProposal {
   ]);
 
   benefits = new RandomCache([
-    'para dar auxílio-paletó',
-    'para dar barras de chocolate',
-    'para dar vale-cultura',
-    'para dar vale-refeição',
-    'para plantar uma árvore',
+    'para instituir um feriado homenageando',
+    'para plantar uma árvore para',
+    'que concede auxílio-paletó para',
+    'que concede barras de chocolate para',
+    'que concede vale-cultura para',
+    'que concede vale-refeição para',
   ]);
 
   receivers = new RandomCache([
-    'para adultos desempregados',
-    'para apicultores',
-    'para bodybuilders',
-    'para concurseiros',
-    'para crossfiteiros',
-    'para estudantes de Educação Física',
-    'para jovens diabéticos',
-    'para pescadores esportivos',
-    'para produtores de leite',
-    'para veganos',
-    'para vítimas de COVID-19',
+    'adultos desempregados',
+    'apicultores',
+    'bodybuilders',
+    'coaches',
+    'concurseiros',
+    'crossfiteiros',
+    'estudantes de Educação Física',
+    'jovens diabéticos',
+    'pescadores esportivos',
+    'produtores de leite',
+    'veganos',
+    'viciados em Twitter',
+    'vítimas de COVID-19',
   ]);
 
   generate() {
@@ -88,9 +91,13 @@ class ProhibitionProposal {
     'a realização de bailes funk',
     'a venda de Whey Protein',
     'bom dia em grupo de WhatsApp',
+    'o consumo de açaí',
+    'o consumo de jiló',
     'o consumo de pequi',
+    'o consumo de quiabo',
     'o consumo de refrigerantes',
     'o novo acordo ortográfico',
+    'o uso de crocs',
     'o uso de samba canção',
     'versões forró de músicas internacionais',
     'vídeos de Fortnite',
@@ -168,8 +175,6 @@ function generateProposal() {
   };
 
   const randomProposal = randomProperty(proposalKinds);
-  console.log(randomProposal);
-
   return randomProposal.generate();
 }
 
