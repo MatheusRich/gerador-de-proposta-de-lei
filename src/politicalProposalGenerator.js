@@ -97,6 +97,7 @@ class ProhibitionProposal {
   ]);
 
   targets = new RandomCache([
+    'a escuta de k-pop',
     'a escuta de sertanejo universitário',
     'a realização de bailes funk',
     'a venda de Whey Protein',
@@ -201,10 +202,24 @@ function generateProposal() {
 window.onload = function () {
   let proposalElement = document.querySelector('.Proposal-text');
   let newProposalBtn = document.querySelector('[data-new-proposal]');
-  // let shareBtn = document.querySelector('[data-share]');
   proposalElement.innerHTML = generateProposal();
 
   newProposalBtn.onclick = function () {
     proposalElement.innerHTML = generateProposal();
+  };
+
+  let shareBtn = document.querySelector('[data-share]');
+  if (!navigator.share) shareBtn.style.display = 'none';
+
+  shareBtn.onclick = async () => {
+    try {
+      await navigator.share({
+        title: 'Gerador de Proposta de lei',
+        text: `"${proposalElement.innerHTML}"`,
+        url: window.location.href,
+      });
+    } catch (err) {
+      this.alert(err);
+    }
   };
 };
