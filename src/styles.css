@@ -1,0 +1,43 @@
+body {
+  font-family: 'Merriweather', serif;
+  color: black;
+  font-size: 40px;
+  min-height: 100vh;
+  margin: 0;
+}
+.header {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  text-align: center;
+  border-bottom: 1px solid #999;
+  padding: 10px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.proposal {
+  text-align: center;
+  align-self: center;
+  max-width: 600px;
+}
+.quote {
+  font-size: 120px;
+  align-self: center;
+  color: #999;
+}
+.button {
+  align-self: center;
+  background-color: white;
+  border-radius: 25px;
+  border: solid #333 1px;
+  color: black;
+  font-size: 25px;
+  padding: 10px;
+  width: 300px;
+  cursor: pointer;
+}
+.button:hover {
+  transform: scale(1.01);
+}
