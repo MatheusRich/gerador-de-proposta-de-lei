@@ -202,14 +202,18 @@ function generateProposal() {
 window.onload = function () {
   let proposalElement = document.querySelector('.Proposal-text');
   let newProposalBtn = document.querySelector('[data-new-proposal]');
+  let shareBtn = document.querySelector('[data-share]');
+  let shareBtnText = !!navigator.share
+    ? 'Compartilhar proposta'
+    : 'Copiar proposta';
+  shareBtn.innerHTML = shareBtnText;
+
   proposalElement.innerHTML = generateProposal();
 
   newProposalBtn.onclick = function () {
+    shareBtn.innerHTML = shareBtnText;
     proposalElement.innerHTML = generateProposal();
   };
-
-  let shareBtn = document.querySelector('[data-share]');
-  if (!navigator.share) shareBtn.style.display = 'none';
 
   shareBtn.onclick = async function () {
     try {
@@ -219,7 +223,8 @@ window.onload = function () {
         url: window.location.href,
       });
     } catch (err) {
-      this.alert(err);
+      navigator.clipboard.writeText(`"${proposalElement.innerHTML}"`);
+      shareBtn.innerHTML = 'Copiado!';
     }
   };
 };
