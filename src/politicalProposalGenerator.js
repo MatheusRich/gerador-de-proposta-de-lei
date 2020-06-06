@@ -146,11 +146,12 @@ function generateProposal() {
 }
 
 window.onload = function () {
-  let proposalElement = document.querySelector('.proposal-text');
-  let buttonElement = document.querySelector('button');
+  let proposalElement = document.querySelector('.Proposal-text');
+  let newProposalBtn = document.querySelector('[data-new-proposal]');
+  // let shareBtn = document.querySelector('[data-share]');
   proposalElement.innerHTML = generateProposal();
 
-  buttonElement.onclick = function () {
+  newProposalBtn.onclick = function () {
     proposalElement.innerHTML = generateProposal();
   };
 };

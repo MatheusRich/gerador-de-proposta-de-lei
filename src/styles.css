@@ -24,43 +24,53 @@ footer {
   text-align: center;
   padding: 20px;
 }
-button {
-  align-self: center;
-  background-color: white;
-  border-radius: 25px;
-  border: solid #333 1px;
+a {
   color: black;
+}
+a:hover {
+  cursor: pointer;
+}
+a:visited {
+  color: black;
+}
+.Button {
+  align-self: center;
+  background-color: black;
+  border-radius: 25px;
+  border: solid black 1px;
+  color: white;
   font-size: 25px;
   padding: 7px 10px;
   width: 300px;
   cursor: pointer;
 }
-button:hover {
+.Button:hover {
   transform: scale(1.01);
 }
-a {
+.Button:not(:first-of-type) {
+  margin-top: 10px;
+}
+.Button--outlined {
+  background-color: white;
   color: black;
 }
-a:visited {
-  color: black;
-}
-.content {
+.Content {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
   justify-content: center;
 }
-.proposal {
+.Proposal {
   display: flex;
   align-self: center;
   margin: 1em 10px;
   margin-left: 0;
   max-width: 600px;
 }
-.proposal-text {
+.Proposal-text {
   margin: 0;
 }
-.quote {
+.Quote {
   color: #aaa;
   align-self: flex-start;
   font-size: 120px;
