@@ -1,2 +1,2 @@
-# gerador-de-proposta-de-lei
+# Gerador de proposta de lei
 Facilitando o trabalho dos legisladores desde 2020
