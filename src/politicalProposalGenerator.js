@@ -150,6 +150,7 @@ window.onload = function () {
   let buttonElement = document.querySelector('button');
   proposalElement.innerHTML = generateProposal();
 
-  buttonElement.onclick = () =>
-    (proposalElement.innerHTML = generateProposal());
+  buttonElement.onclick = function () {
+    proposalElement.innerHTML = generateProposal();
+  };
 };
