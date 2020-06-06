@@ -123,8 +123,11 @@ function generateNewPermissionProposal() {
     'em fins de semana',
     'em parques públicos',
     'em praias de nudismo',
-    'em vias públicas',
     'em shopping centers',
+    'em todas as cidades',
+    'em todo território nacional',
+    'em vias públicas',
+    'no Acre',
   ];
 
   const action = randomFromArray(actions);
