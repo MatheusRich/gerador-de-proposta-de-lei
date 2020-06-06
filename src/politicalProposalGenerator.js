@@ -110,10 +110,13 @@ class ProhibitionProposal {
   ]);
 
   objectives = new RandomCache([
+    'em defesa da democracia',
     'em defesa da família',
+    'em defesa dos direitos humanos',
     'em defesa dos valores cristãos',
     'em vias públicas',
     'para combater a URSAL',
+    'para combater a doutrinação nas escolas',
     'para combater a obesidade',
     'para combater o capitalismo',
     'para combater o comunismo',
@@ -143,10 +146,14 @@ class PermissionProposal {
   ]);
 
   targets = new RandomCache([
+    'a construção de cassinos',
     'a construção de usinas nucleares',
     'a realização de rinhas de galo',
     'a volta do Orkut',
+    'a volta do RBD',
     'jogo do bicho',
+    'o congelamento do preço de sushi',
+    'o consumo de Cloroquina',
     'o consumo de maconha',
     'o uso de doping nos esportes',
   ]);
