@@ -7,10 +7,22 @@ function randomProperty(obj) {
   return obj[keys[randomInt(0, keys.length)]];
 }
 
-function shuffle(array) {
-  return [...array].sort(function () {
-    return Math.random() - 0.5;
-  });
+function shuffle(originalArray) {
+  let array = [...originalArray];
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
+
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }
 
 class RandomCache {
@@ -104,6 +116,8 @@ class ProhibitionProposal {
     'a realização de bailes funk',
     'a venda de Whey Protein',
     'bom dia em grupo de WhatsApp',
+    'grupo de família no WhatsApp',
+    'lives de sertanejo',
     'o consumo de açaí',
     'o consumo de bebidas alcoólicas',
     'o consumo de jiló',
@@ -114,6 +128,7 @@ class ProhibitionProposal {
     'o novo acordo ortográfico',
     'o uso de crocs',
     'o uso de samba canção',
+    'sopa na janta',
     'versões forró de músicas internacionais',
     'vídeos de Fortnite',
   ]);
@@ -166,6 +181,7 @@ class PermissionProposal {
     'o congelamento do preço de sushi',
     'o consumo de Cloroquina',
     'o consumo de maconha',
+    'o fim das lives de sertanejo',
     'o uso de doping nos esportes',
   ]);
 
@@ -184,6 +200,7 @@ class PermissionProposal {
     'em todo território nacional',
     'em vias públicas',
     'no Acre',
+    'no Beto Carrero World',
     'uma vez por ano',
   ]);
 
