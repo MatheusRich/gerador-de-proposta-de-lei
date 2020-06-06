@@ -1,6 +1,10 @@
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
 function randomProperty(obj) {
   var keys = Object.keys(obj);
-  return obj[keys[(keys.length * Math.random()) << 0]];
+  return obj[keys[randomInt(0, keys.length)]];
 }
 
 function shuffle(array) {
@@ -101,7 +105,9 @@ class ProhibitionProposal {
     'o consumo de jiló',
     'o consumo de pequi',
     'o consumo de quiabo',
+    'o consumo de água com gás',
     'o consumo de refrigerantes',
+    'o consumo de bebidas alcoólicas',
     'o novo acordo ortográfico',
     'o uso de crocs',
     'o uso de samba canção',
@@ -181,13 +187,13 @@ const benefitProposal = new BenefitProposal();
 const prohibitionProposal = new ProhibitionProposal();
 const permissionProposal = new PermissionProposal();
 
-function generateProposal() {
-  const proposalKinds = {
-    BENEFIT: benefitProposal,
-    PROHIBITION: prohibitionProposal,
-    PERMISSION: permissionProposal,
-  };
+const proposalKinds = {
+  BENEFIT: benefitProposal,
+  PROHIBITION: prohibitionProposal,
+  PERMISSION: permissionProposal,
+};
 
+function generateProposal() {
   const randomProposal = randomProperty(proposalKinds);
   return randomProposal.generate();
 }
