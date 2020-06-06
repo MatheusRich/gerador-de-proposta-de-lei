@@ -4,7 +4,7 @@ function randomProperty(obj) {
 }
 
 function shuffle(array) {
-  return array.sort(function () {
+  return [...array].sort(function () {
     return Math.random() - 0.5;
   });
 }
