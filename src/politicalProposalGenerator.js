@@ -15,6 +15,7 @@ function randomProperty(obj) {
 
 function generateNewBenefitProposal() {
   const actions = [
+    'Novo benefício estadual',
     'Novo incentivo Federal',
     'Novo programa da prefeitura',
     'Será criada uma nova taxa',
@@ -33,6 +34,7 @@ function generateNewBenefitProposal() {
     'para adultos desempregados',
     'para apicultores',
     'para bodybuilders',
+    'para concurseiros',
     'para crossfiteiros',
     'para estudantes de Educação Física',
     'para jovens diabéticos',
@@ -144,8 +146,8 @@ function generateProposal() {
 }
 
 window.onload = function () {
-  let proposalElement = document.querySelector('.proposal');
-  let buttonElement = document.querySelector('.button');
+  let proposalElement = document.querySelector('.proposal-text');
+  let buttonElement = document.querySelector('button');
   proposalElement.innerHTML = generateProposal();
 
   buttonElement.onclick = () =>
