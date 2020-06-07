@@ -3,7 +3,7 @@ function randomInt(min, max) {
 }
 
 function randomProperty(obj) {
-  var keys = Object.keys(obj);
+  let keys = Object.keys(obj);
   return obj[keys[randomInt(0, keys.length)]];
 }
 
@@ -71,9 +71,11 @@ const benefitProposal = new ProposalGenerator({
   middleSentences: [
     'para instituir um feriado homenageando',
     'para plantar uma árvore para',
+    'que concede auxílio-emergencial vitalício para',
     'que concede auxílio-moradia para',
     'que concede auxílio-paletó para',
     'que concede barras de chocolate para',
+    'que concede desconto na conta de energia de todos os',
     'que concede vale-cultura para',
     'que concede vale-refeição para',
     'que concede vale-transporte para',
@@ -92,12 +94,17 @@ const benefitProposal = new ProposalGenerator({
     'eleitores do Dória',
     'eleitores do Lula',
     'estudantes de Educação Física',
+    'integrantes do MST',
     'jovens diabéticos',
-    'músicos',
+    'menores de 18 anos',
+    'metalúrgicos',
+    'músicos de barzinho',
     'negativados',
     'pescadores esportivos',
     'pessoas com faturas atrasadas',
+    'presidentes de sindicato',
     'produtores de leite',
+    'professores',
     'servidores públicos',
     'veganos',
     'viciados em Twitter',
@@ -145,6 +152,7 @@ const prohibitionProposal = new ProposalGenerator({
     'sopa na janta',
     'versões forró de músicas internacionais',
     'vídeos de Fortnite',
+    'privatizações',
   ],
   finalSentences: [
     'em defesa da democracia',
@@ -182,6 +190,7 @@ const permissionProposal = new ProposalGenerator({
     'a construção de usinas nucleares',
     'a extração de nióbio',
     'a realização de rinhas de galo',
+    'a taxação de grandes fortunas',
     'a volta das tirinhas de meme',
     'a volta do Orkut',
     'a volta do RBD',
@@ -190,9 +199,11 @@ const permissionProposal = new ProposalGenerator({
     'o consumo de Cloroquina',
     'o consumo de maconha',
     'o fim das lives de sertanejo',
+    'o porte de armas',
     'o uso de doping nos esportes',
   ],
   finalSentences: [
+    'durante um ano',
     'em Itaquaquecetuba',
     'em Pindamonhangaba',
     'em anos bissextos',
@@ -215,8 +226,8 @@ const permissionProposal = new ProposalGenerator({
 
 const proposalKinds = {
   BENEFIT: benefitProposal,
-  PROHIBITION: prohibitionProposal,
   PERMISSION: permissionProposal,
+  PROHIBITION: prohibitionProposal,
 };
 
 function generateProposal() {
