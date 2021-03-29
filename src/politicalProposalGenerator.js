@@ -96,6 +96,7 @@ const benefitProposal = new ProposalGenerator({
     'estudantes de Educação Física',
     'integrantes do MST',
     'jovens diabéticos',
+    'membros do STF',
     'menores de 18 anos',
     'metalúrgicos',
     'músicos de barzinho',
