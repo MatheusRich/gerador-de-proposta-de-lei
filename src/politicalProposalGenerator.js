@@ -77,7 +77,7 @@ const benefitProposal = new ProposalGenerator({
     'que concede auxílio-paletó para',
     'que concede barras de chocolate para',
     'que concede desconto na conta de energia de todos os',
-    'que concede folga em toda segunda-feira',
+    'que concede folga em toda segunda-feira para',
     'que concede suprimento de miojo vitalício para',
     'que concede vale-cultura para',
     'que concede vale-refeição para',
