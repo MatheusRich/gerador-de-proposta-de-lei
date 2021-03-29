@@ -137,6 +137,7 @@ const prohibitionProposal = new ProposalGenerator({
     'a realização de bailes funk',
     'a venda de Whey Protein',
     'aplicativos de carona compartilhada',
+    'feijão em baixo do arroz',
     'bom dia em grupo de WhatsApp',
     'grupo de família no WhatsApp',
     'lives de sertanejo',
