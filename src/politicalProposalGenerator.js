@@ -162,7 +162,7 @@ const prohibitionProposal = new ProposalGenerator({
     'em defesa dos direitos humanos',
     'em defesa dos valores cristãos',
     'em vias públicas',
-    'a COVID-19',
+    'para combater a COVID-19',
     'para combater a URSAL',
     'para combater a doutrinação nas escolas',
     'para combater a obesidade',
